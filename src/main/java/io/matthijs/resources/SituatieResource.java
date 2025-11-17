@@ -45,7 +45,34 @@ public class SituatieResource {
     public String lastPost(String post) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
-        Antwoord antwoord = mapper.readValue(new File("src/test/resources/json_car.json"), Antwoord.class);
+        String jsonAntwoord = """
+                {
+                  "antwoord": "Ja",
+                  "kenmerk": "krijg AOW"
+                }
+                """;
+
+//        Antwoord antwoord = mapper.readValue(new File("/src/main/resources/antwoord.json"), Antwoord.class);
+        Antwoord antwoord = mapper.readValue(jsonAntwoord, Antwoord.class);
+
+        String jsonVraag = """
+                {
+                                   "vraagtekst": "string0",
+                                   "antwoordmogelijkheden": [
+                                     {
+                                       "antwoord": "string1a",
+                                       "kenmerk": "string1b"
+                                     },
+                                     {
+                                       "antwoord": "string2a",
+                                       "kenmerk": "string2b"
+                                     }
+                                   ]
+                                 }
+                """;
+        Vraag vraag = mapper.readValue(jsonVraag, Vraag.class);
+
+
         return post + " last";
     }
 
@@ -54,6 +81,12 @@ public class SituatieResource {
     public Situatie bepaalSituatie(List<Antwoord> antwoordList) {
         Situatie situatie = new Situatie("ergens", antwoordList);
         return situatie;
+    }
+
+    @Path("/vraag")
+    @POST
+    public void stelVraag(Vraag vraag) {
+        boolean wacht=true;
     }
 
 

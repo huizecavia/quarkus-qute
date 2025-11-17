@@ -1,0 +1,13 @@
+{
+  "vraagtekst": "string0",
+  "antwoordmogelijkheden": [
+    {
+      "antwoord": "string1a",
+      "kenmerk": "string1b"
+    },
+    {
+      "antwoord": "string2a",
+      "kenmerk": "string2b"
+    }
+  ]
+}
