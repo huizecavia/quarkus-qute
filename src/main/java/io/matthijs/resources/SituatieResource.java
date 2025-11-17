@@ -39,12 +39,9 @@ public class SituatieResource {
 
     @Path("/post")
     @POST
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-    public String bepaalSituatie(Antwoord antwoord) {
-//        Situatie situatie = new Situatie(null, antwoordList);
-//        return situatie;
-        return "ergens";
+    public Situatie bepaalSituatie(List<Antwoord> antwoordList) {
+        Situatie situatie = new Situatie("ergens", antwoordList);
+        return situatie;
     }
 
 
