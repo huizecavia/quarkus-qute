@@ -1,6 +1,7 @@
 package io.matthijs.models;
 
 public record Antwoord(
-        String antwoord
+        String antwoord,
+        String kenmerk
 ) {
 }

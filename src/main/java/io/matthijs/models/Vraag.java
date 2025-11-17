@@ -1,9 +1,9 @@
 package io.matthijs.models;
 
+import java.util.List;
+
 public record Vraag(
         String vraagtekst,
-        String antwoordA,
-        String antwoordB,
-        String antwoordC
+        List<Antwoord> antwoordmogelijkheden
 ) {
 }

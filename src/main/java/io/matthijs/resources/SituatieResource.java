@@ -1,5 +1,6 @@
 package io.matthijs.resources;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.matthijs.models.Antwoord;
 import io.matthijs.models.Situatie;
 import io.matthijs.models.Vraag;
@@ -8,6 +9,9 @@ import io.quarkus.qute.TemplateInstance;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Objects.requireNonNull;
@@ -17,23 +21,31 @@ public class SituatieResource {
 
     private final Template situatie;
 
-    public SituatieResource(Template situatie)  {
-        this.situatie = requireNonNull(situatie, "page is required");
+    public SituatieResource(Template situatie) {
+        this.situatie = situatie;
     }
+
 
     @Path("/get")
     @GET
     @Produces(MediaType.TEXT_HTML)
     public TemplateInstance get() {
 
-        Vraag v = new Vraag("Krijg je AOW?","Ja","Nee","Gaat je niets aan");
+        List<Antwoord> antwoordList = new ArrayList<>();
+        antwoordList.add(new Antwoord("Ja", "krijg AOW"));
+        antwoordList.add(new Antwoord("nee", "krijg geen AOW"));
+        antwoordList.add(new Antwoord("onbekend", "hoezo?"));
+        Vraag v = new Vraag("Krijg je AOW?", antwoordList);
 
         return situatie.data("vraag", v);
     }
 
     @Path("/stringpost")
     @POST
-    public String lastPost(String post) {
+    public String lastPost(String post) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        Antwoord antwoord = mapper.readValue(new File("src/test/resources/json_car.json"), Antwoord.class);
         return post + " last";
     }
 
