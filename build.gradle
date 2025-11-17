@@ -14,9 +14,7 @@ dependencies {
     implementation 'io.quarkus:quarkus-rest'
     implementation 'io.quarkus:quarkus-rest-qute'
     implementation 'io.quarkus:quarkus-arc'
-    implementation("io.quarkus:quarkus-rest-jackson")
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
-    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.4'
     implementation("io.quarkus:quarkus-smallrye-openapi")
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
