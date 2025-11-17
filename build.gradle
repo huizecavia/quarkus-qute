@@ -9,10 +9,13 @@ repositories {
 }
 
 dependencies {
+    implementation 'io.quarkus:quarkus-swagger-ui'
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'io.quarkus:quarkus-rest'
     implementation 'io.quarkus:quarkus-rest-qute'
     implementation 'io.quarkus:quarkus-arc'
+    implementation("io.quarkus:quarkus-rest-jackson")
+    implementation("io.quarkus:quarkus-smallrye-openapi")
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
 }

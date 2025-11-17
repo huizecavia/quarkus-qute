@@ -1,4 +1,4 @@
-package io.matthijs;
+package io.matthijs.resources;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

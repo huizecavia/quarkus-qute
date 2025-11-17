@@ -24,11 +24,15 @@
         <input type="radio" id="antwoordC" name="drone" value="antwoorC" />
         <label for="antwoordC">{vraag.antwoordC}</label>
     </div>
-    <div>
-        <button type="submit">Submit</button>
-    </div>
 </fieldset>
 
+<form>
+    <input type="string" name="post" />
 
+    <button hx-post="http://localhost:8080/situatie/stringpost">
+        Stuur
+    </button>
+
+</form>
 </body>
 </html>

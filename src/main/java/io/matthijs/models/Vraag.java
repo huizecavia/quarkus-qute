@@ -1,4 +1,4 @@
-package io.matthijs;
+package io.matthijs.models;
 
 public record Vraag(
         String vraagtekst,
