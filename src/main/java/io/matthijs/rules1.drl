@@ -1,0 +1,22 @@
+global Integer maxAmount;
+global java.util.List approvedApplications;
+
+rule LargeDepositApprove when
+   $l: LoanApplication( applicant.age >= 20, deposit >= 1000, amount <= maxAmount )
+then
+   modify($l) { setApproved(true) }; // loan is approved
+end
+
+rule LargeDepositReject when
+   $l: LoanApplication( applicant.age >= 20, deposit >= 1000, amount > maxAmount )
+then
+   modify($l) { setApproved(false) }; // loan is rejected
+end
+
+// ... more loans approval/rejections business rules ...
+
+rule CollectApprovedApplication when
+   $l: LoanApplication( approved )
+then
+   approvedApplications.add($l); // collect all approved loan applications
+end

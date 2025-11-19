@@ -75,9 +75,16 @@ public class SituatieResource {
         return post + " last";
     }
 
+    @Path("/doublepost")
+    @POST
+    public String doublePost(List<String> post) throws IOException {
+
+        return post.get(0) + " " + post.get(1);
+    }
+
     @Path("/post")
     @POST
-    public Situatie bepaalSituatie(List<Antwoord> antwoordList) {
+    public Situatie bepaalSituatie(List<String> antwoordList) {
         Situatie situatie = new Situatie("ergens", antwoordList);
         return situatie;
     }

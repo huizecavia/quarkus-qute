@@ -9,15 +9,35 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.quarkus:quarkus-swagger-ui'
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
-    implementation 'io.quarkus:quarkus-rest'
-    implementation 'io.quarkus:quarkus-rest-qute'
+
+    // Core Quarkus dependencies
     implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-resteasy'
+    implementation 'io.quarkus:quarkus-resteasy-jackson'
+
+    // REST & JSON processing
+    implementation 'io.quarkus:quarkus-jackson'
+    implementation 'io.quarkus:quarkus-resteasy-client'
+//    implementation 'io.quarkus:quarkus-resteasy-reactive-client'
+
+
+    // Additional useful dependencies
+    implementation 'io.quarkus:quarkus-smallrye-openapi'  // For OpenAPI/Swagger
+    implementation 'io.quarkus:quarkus-smallrye-health'
+    implementation 'io.quarkus:quarkus-smallrye-graphql-client'
+    implementation 'io.quarkus:quarkus-smallrye-graphql'
+    implementation 'io.quarkus:quarkus-redis-cache'// For health checks
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
-    implementation("io.quarkus:quarkus-smallrye-openapi")
+    implementation 'io.quarkus:quarkus-swagger-ui'
+
+    // Testing
     testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.quarkus:quarkus-junit5-mockito'
     testImplementation 'io.rest-assured:rest-assured'
+    implementation 'io.quarkus:quarkus-qute'
+    implementation 'io.quarkus:quarkus-resteasy-qute'
+    implementation 'io.quarkus:quarkus-resteasy-qute'
 }
 
 group 'io.matthijs'
