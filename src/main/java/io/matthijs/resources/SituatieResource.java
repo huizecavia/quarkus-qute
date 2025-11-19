@@ -52,7 +52,6 @@ public class SituatieResource {
                 }
                 """;
 
-//        Antwoord antwoord = mapper.readValue(new File("/src/main/resources/antwoord.json"), Antwoord.class);
         Antwoord antwoord = mapper.readValue(jsonAntwoord, Antwoord.class);
 
         String jsonVraag = """
@@ -88,6 +87,8 @@ public class SituatieResource {
     public void stelVraag(Vraag vraag) {
         boolean wacht=true;
     }
+
+//    https://quarkus.io/guides/drools
 
 
 
