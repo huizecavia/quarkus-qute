@@ -82,6 +82,13 @@ public class SituatieResource {
         return post.get(0) + " " + post.get(1);
     }
 
+    @Path("/antwoordpost")
+    @POST
+    public String antwoordPost(List<Antwoord> post) throws IOException {
+
+        return post.get(0).antwoord() + " " + post.get(0).kenmerk();
+    }
+
     @Path("/post")
     @POST
     public Situatie bepaalSituatie(List<String> antwoordList) {
