@@ -9,6 +9,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.drools:drools-quarkus:10.1.0'
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
 
     // Core Quarkus dependencies
